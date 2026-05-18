@@ -1,30 +1,181 @@
 <!DOCTYPE html>
 <html>
+
 <body>
+
   <h1 id="quote">Loading...</h1>
+
   <p id="author"></p>
 
   <button id="btn">
     New Quote
   </button>
 
+  <br><br>
+
+  <form id="form">
+
+    <input
+      type="text"
+      id="authorInput"
+      placeholder="Author"
+    />
+
+    <br><br>
+
+    <input
+      type="text"
+      id="quoteInput"
+      placeholder="Quote"
+    />
+
+    <br><br>
+
+    <button type="submit">
+      Submit Quote
+    </button>
+
+  </form>
+
   <script>
-    const quote = document.getElementById("quote");
-    const author = document.getElementById("author");
-    const btn = document.getElementById("btn");
 
+    const quote =
+      document.getElementById("quote");
+
+    const author =
+      document.getElementById("author");
+
+    const btn =
+      document.getElementById("btn");
+
+    const form =
+      document.getElementById("form");
+
+    const authorInput =
+      document.getElementById("authorInput");
+
+    const quoteInput =
+      document.getElementById("quoteInput");
+
+
+    const API_URL =
+      "http://xeb6g5mgh0sczv2nsbt1nun0.178.105.39.91.sslip.io";
+
+
+    // GET quote
     async function loadQuote() {
-      const response = await fetch("http://xeb6g5mgh0sczv2nsbt1nun0.178.105.39.91.sslip.io");
 
-      const data = await response.json();
+      try {
 
-      quote.textContent = data.quote;
-      author.textContent = data.author;
+        const response =
+          await fetch(API_URL);
+
+        const data =
+          await response.json();
+
+        quote.textContent =
+          data.quote;
+
+        author.textContent =
+          data.author;
+
+      } catch (err) {
+
+        console.log(err);
+
+        quote.textContent =
+          "Error loading quote";
+
+        author.textContent = "";
+      }
     }
 
-    btn.addEventListener("click", loadQuote);
 
+    // NEW QUOTE BUTTON
+    btn.addEventListener(
+      "click",
+      loadQuote
+    );
+
+
+    // POST quote
+    form.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        // validation
+        if (
+          !authorInput.value ||
+          !quoteInput.value
+        ) {
+
+          alert("Fill all fields");
+
+          return;
+        }
+
+
+        const newQuote = {
+
+          author: authorInput.value,
+          quote: quoteInput.value
+
+        };
+
+
+        try {
+
+          const response = await fetch(
+            `${API_URL}/api/quotes`,
+            {
+
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify(newQuote)
+
+            }
+          );
+
+
+          const result =
+            await response.text();
+
+          console.log(result);
+
+          alert("Quote added successfully");
+
+
+          // clear inputs
+          authorInput.value = "";
+          quoteInput.value = "";
+
+
+          // reload quote
+          await loadQuote();
+
+        } catch (err) {
+
+          console.log(err);
+
+          alert("Error adding quote");
+        }
+
+      }
+    );
+
+
+    // first load
     loadQuote();
+
   </script>
+
 </body>
 </html>

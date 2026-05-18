@@ -1,24 +1,28 @@
-const express = require('express')
-const app = express()
-const http = require('http').createServer(app)
-const io = require('socket.io')(http)
+const express = require("express");
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
+const app = express();
 
-/* get files app */
-app.use(express.static(__dirname + '/assets'))
+app.use(express.json());
+app.use(express.static("public"));
 
-io.on('connection', (socket) => {
-    socket.on('chat message', (data) => {
-        io.emit('chat message', {
-        message: data.message,
-        name: data.name
-    })
-  })
-})
+const messages = [];
 
-http.listen(3000, () => {
-    console.log('start server')
-})
+app.get("/messages", (req, res) => {
+  res.json(messages);
+});
+
+app.post("/messages", (req, res) => {
+  const newMessage = {
+    text: req.body.text,
+  };
+
+  messages.push(newMessage);
+
+  res.json({
+    success: true,
+  });
+});
+
+app.listen(3000, () => {
+  console.log("Server started");
+});
