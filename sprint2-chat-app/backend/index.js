@@ -5,21 +5,18 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 const messages = [];
 
-// FRONTEND
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "frontend", "index.html"));
 });
 
-// GET MESSAGES
 app.get("/messages", (req, res) => {
   res.json(messages);
 });
 
-// ADD MESSAGE
 app.post("/messages", (req, res) => {
   const newMessage = {
     text: req.body.text,
