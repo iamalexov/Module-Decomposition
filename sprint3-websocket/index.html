@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
     <link rel="stylesheet" href="./main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <header>
     <ul class="messages">
-        <li>message 1</li>
-        <li>message 2</li>
-        <li>message 3</li>
+        
     </ul>
      
     <form class="form">
-        <div class="name">Alex</div>
+        <div class="name"></div>
         <input type="text" class="input" autocomplete="off">
         <button class="btn">Send</button>
     </form>
 
 </header>    
-
+    <script src="/socket.io/socket.io.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>
