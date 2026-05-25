@@ -1,81 +1,144 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+.chat {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex: 1;
+
+  list-style: none;
+
+  padding: 20px;
+
+  overflow-y: auto;
+}
+
+.messages li {
+  background: white;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  margin-bottom: 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message-content {
+  word-break: break-word;
+}
+
+.messages li span {
+  font-weight: 700;
+}
+
+.reactions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.like-btn,
+.dislike-btn {
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition: transform 0.2s ease;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+  transform: scale(1.1);
 }
 
 .form {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0, .15);
-    padding: 5px;
-    display: flex;
-    height: 50px;
-    align-items: center;
-    backdrop-filter: blur(10px);
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  background: rgba(255,255,255,0.7);
+
+  backdrop-filter: blur(10px);
 }
 
 .name {
-    height: 35px;
-    background: beige;
-    padding: 15px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #222;
-    font-size: 14px;
-    font-weight: 300;
+  background: beige;
+
+  padding: 10px 15px;
+
+  border-radius: 30px;
+
+  white-space: nowrap;
 }
 
 .input {
-    background: #eee;
-    height: 35px;
-    border-radius: 30px;
-    border: #222;
-    margin: 5px;
-    padding: 0 25px;
-    display: flex;
-    width: 100%;
-    outline: none;
+  flex: 1;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  padding: 0 20px;
+
+  outline: none;
 }
 
 .btn {
-    background: #222;
-    border: none;
-    width: 100px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    color: white;
-    border-radius: 5px;
+  width: 100px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #222;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
 }
 
 .btn:hover {
   background: #444;
-  cursor: pointer;
-}
-
-.messages {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-    
-.messages > li{
-    padding: 10px;
-}
-
-.messages > li > span {
-    font-weight: 500;
-}
-
-.messages > li >:nth-child(odd) {
-    background: #efefef;
 }

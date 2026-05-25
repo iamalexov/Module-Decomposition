@@ -1,29 +1,67 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
-    <link rel="stylesheet" href="./main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Realtime Chat</title>
+
+  <link
+    rel="stylesheet"
+    href="/main.css"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
 </head>
+
 <body>
 
-<header>
-    <ul class="messages">
-        
-    </ul>
-     
+  <main class="chat">
+
+    <ul class="messages"></ul>
+
     <form class="form">
-        <div class="name"></div>
-        <input type="text" class="input" autocomplete="off">
-        <button class="btn">Send</button>
+
+      <div class="name"></div>
+
+      <input
+        type="text"
+        class="input"
+        placeholder="Type message..."
+        autocomplete="off"
+      >
+
+      <button class="btn">
+        Send
+      </button>
+
     </form>
 
-</header>    
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./main.js"></script>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="/main.js"></script>
+
 </body>
+
 </html>
