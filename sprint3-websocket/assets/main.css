@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+.chat {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex: 1;
+
+  list-style: none;
+
+  padding: 20px;
+
+  overflow-y: auto;
+}
+
+.messages li {
+  background: white;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  margin-bottom: 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message-content {
+  word-break: break-word;
+}
+
+.messages li span {
+  font-weight: 700;
+}
+
+.reactions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.like-btn,
+.dislike-btn {
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition: transform 0.2s ease;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+  transform: scale(1.1);
+}
+
+.form {
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  background: rgba(255,255,255,0.7);
+
+  backdrop-filter: blur(10px);
+}
+
+.name {
+  background: beige;
+
+  padding: 10px 15px;
+
+  border-radius: 30px;
+
+  white-space: nowrap;
+}
+
+.input {
+  flex: 1;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  padding: 0 20px;
+
+  outline: none;
+}
+
+.btn {
+  width: 100px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #222;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #444;
+}
